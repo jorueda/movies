@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Reparto</title>
+</head>
+<body>
+    <h1>Reparto</h1>
+    <table>
+        <thead>
+            <tr>
+                <th style="text-align: left;">Nombre</th>
+                <th style="text-align: left;">Personaje</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for item in items %}
+            <tr>
+                <td>{{ item.name }}</td>
+                <td>{{ item.character }}</td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <br>
+    <button onclick="goBack()">Volver</button>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+</html>
