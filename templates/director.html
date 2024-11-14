@@ -2,22 +2,20 @@
 <html>
 
 <head>
-    <title>Reparto</title>
+    <title>Director</title>
 </head>
 
 <body>
-    <h1>Reparto {{ title }}</h1>
+    <h1>Director {{ title }}</h1>
     <table>
         <thead>
             <tr>
-                <th style="text-align: left;">Personaje</th>
                 <th style="text-align: left;">Nombre</th>
             </tr>
         </thead>
         <tbody>
             {% for person in items %}
             <tr>
-                <td>{{ person.character }}</td>
                 <td>{{ person.name }}</td>
                 <td><a href="/related-movies/{{ person.id }}?name={{ person.name }}">Películas</a></td>
             </tr>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Películas relacionadas</title>
+</head>
+
+<body>
+    <h1>Películas {{ name }}</h1>
+    <table>
+        <tr>
+            <th style="text-align: left;">Título</th>
+            <th style="text-align: left;">Título Original</th>
+            <th style="text-align: left;">Fecha de lanzamiento</th>
+        </tr>
+        {% for movie in items %}
+        <tr>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.original_title }}</td>
+            <td>{{ movie.release_date }}</td>
+            <td><a href="/cast/{{ movie.id }}?title={{ movie.title }}">Reparto</a></td>
+            <td><a href="/director/{{ movie.id }}?title={{ movie.title }}">Director</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <form action="/" method="get" style="display:inline;">
+        <button type="submit">🏠</button>
+    </form>
+    <button onclick="goBack()">Atrás</button>
+    <script>
+        function goBack() {
+            window.history.back();
+        }
+    </script>
+</body>
+
+</html>

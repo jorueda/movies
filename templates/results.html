@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Resultados</title>
+</head>
+
+<body>
+    <h1>Resultados</h1>
+    <table>
+        <tr>
+            <th style="text-align: left;">Título</th>
+            <th style="text-align: left;">Título Original</th>
+            <th style="text-align: left;">Fecha de lanzamiento</th>
+        </tr>
+        {% for movie in items %}
+        <tr>
+            <td>{{ movie.title }}</td>
+            <td>{{ movie.original_title }}</td>
+            <td>{{ movie.release_date }}</td>
+            <td><a href="/cast/{{ movie.id }}?title={{ movie.title }}">Reparto</a></td>
+            <td><a href="/director/{{ movie.id }}?title={{ movie.title }}">Director</a></td>
+        </tr>
+        {% endfor %}
+    </table>
+    <br>
+    <form action="/" method="get" style="display:inline;">
+        <button type="submit">🏠</button>
+    </form>
+    <form action="/search" method="get" style="display:inline;">
+        <input type="hidden" name="query" value="{{ query }}">
+        <input type="hidden" name="page" value="{{ page - 1 }}">
+        <button type="submit" {% if page==1 %}disabled{% endif %}>Atrás</button>
+    </form>
+    <form action="/search" method="get" style="display:inline;">
+        <input type="hidden" name="query" value="{{ query }}">
+        <input type="hidden" name="page" value="{{ page + 1 }}">
+        <button type="submit">Más</button>
+    </form>
+</body>
+
+</html>
