@@ -7,31 +7,21 @@
 
 <body>
     <h1>Director {{ title }}</h1>
+    {% include "buttons.html" %}
     <table>
         <thead>
             <tr>
-                <th style="text-align: left;">Nombre</th>
+                <th style="text-align: left;">Director</th>
             </tr>
         </thead>
         <tbody>
-            {% for person in items %}
+            {% for person in directors %}
             <tr>
-                <td>{{ person.name }}</td>
-                <td><a href="/related-movies/{{ person.id }}?name={{ person.name }}">Películas</a></td>
+                <td><a href="/related-movies/{{ person.id }}?name={{ person.name }}">{{ person.name }}</a></td>
             </tr>
             {% endfor %}
         </tbody>
     </table>
-    <br>
-    <form action="/" method="get" style="display:inline;">
-        <button type="submit">🏠</button>
-    </form>
-    <button onclick="goBack()">Atrás</button>
-    <script>
-        function goBack() {
-            window.history.back();
-        }
-    </script>
 </body>
 
 </html>
