@@ -110,48 +110,6 @@ class FormatResults(TestCase):
                     "character": "Carlos",
                     "credit_id": "52fe43b2c3a36847f806878b",
                     "order": 1
-                },
-                {
-                    "adult": False,
-                    "gender": 1,
-                    "id": 25257,
-                    "known_for_department": "Acting",
-                    "name": "Julieta Serrano",
-                    "original_name": "Julieta Serrano",
-                    "popularity": 0.945,
-                    "profile_path": "/3eVHZ5gieSxNYUJRXaYLDaljDQO.jpg",
-                    "cast_id": 5,
-                    "character": "Lucía",
-                    "credit_id": "52fe43b2c3a36847f806878f",
-                    "order": 2
-                },
-                {
-                    "adult": False,
-                    "gender": 1,
-                    "id": 25025,
-                    "known_for_department": "Acting",
-                    "name": "María Barranco",
-                    "original_name": "María Barranco",
-                    "popularity": 2.759,
-                    "profile_path": "/47iVJl6a8oOenab7LeYEnBO40xe.jpg",
-                    "cast_id": 6,
-                    "character": "Candela",
-                    "credit_id": "52fe43b2c3a36847f8068793",
-                    "order": 3
-                },
-                {
-                    "adult": False,
-                    "gender": 1,
-                    "id": 25258,
-                    "known_for_department": "Acting",
-                    "name": "Rossy de Palma",
-                    "original_name": "Rossy de Palma",
-                    "popularity": 6.946,
-                    "profile_path": "/3IH9ZBUcFNwBr8IcS1RZhMKTpeg.jpg",
-                    "cast_id": 7,
-                    "character": "Marisa",
-                    "credit_id": "52fe43b2c3a36847f8068797",
-                    "order": 4
                 }
             ],
             "crew": [
@@ -180,52 +138,22 @@ class FormatResults(TestCase):
                     "credit_id": "52fe43b2c3a36847f80687db",
                     "department": "Sound",
                     "job": "Original Music Composer"
-                },
-                {
-                    "adult": False,
-                    "gender": 2,
-                    "id": 4376,
-                    "known_for_department": "Camera",
-                    "name": "José Luis Alcaine",
-                    "original_name": "José Luis Alcaine",
-                    "popularity": 1.572,
-                    "profile_path": "/6m3lhxAWoFs2swR1BFdZKwF6GIJ.jpg",
-                    "credit_id": "52fe43b2c3a36847f80687e1",
-                    "department": "Camera",
-                    "job": "Director of Photography"
-                },
-                {
-                    "adult": False,
-                    "gender": 2,
-                    "id": 952,
-                    "known_for_department": "Production",
-                    "name": "Agustín Almodóvar",
-                    "original_name": "Agustín Almodóvar",
-                    "popularity": 2.351,
-                    "profile_path": "/ciY5icxyNekGwD3taLvzOprp2w5.jpg",
-                    "credit_id": "52fe43b2c3a36847f80687cf",
-                    "department": "Production",
-                    "job": "Executive Producer"
-                },
-                {
-                    "adult": False,
-                    "gender": 2,
-                    "id": 309,
-                    "known_for_department": "Directing",
-                    "name": "Pedro Almodóvar",
-                    "original_name": "Pedro Almodóvar",
-                    "popularity": 9.367,
-                    "profile_path": "/eRgGaVKEftJ0rbZCOPzCSOBZi9.jpg",
-                    "credit_id": "52fe43b2c3a36847f80687c9",
-                    "department": "Production",
-                    "job": "Producer"
                 }
             ]
         }
         expected_result = [
             {
+                "adult": False,
+                "gender": 2,
                 "id": 309,
+                "known_for_department": "Directing",
                 "name": "Pedro Almodóvar",
+                "original_name": "Pedro Almodóvar",
+                "popularity": 9.367,
+                "profile_path": "/eRgGaVKEftJ0rbZCOPzCSOBZi9.jpg",
+                "credit_id": "52fe43b2c3a36847f806877d",
+                "department": "Directing",
+                "job": "Director"
             }
         ]
         self.assertEqual(get_director(data), expected_result)
@@ -267,7 +195,7 @@ class FormatResults(TestCase):
                     "overview": "",
                     "popularity": 1.516,
                     "poster_path": "/i1rVhnOgIyGaCU7sixQ9W2KQHoR.jpg",
-                    "release_date": "",
+                    "release_date": "",  # No release date
                     "title": "A Night to Die For",
                     "video": False,
                     "vote_average": 0,
@@ -291,7 +219,7 @@ class FormatResults(TestCase):
                     "video": False,
                     "vote_average": 5.4,
                     "vote_count": 4,
-                    "character": "",
+                    "character": "",  # No character
                     "credit_id": "58134122925141543e025261",
                     "order": 5
                 }
@@ -357,7 +285,7 @@ class FormatResults(TestCase):
                     "overview": "",
                     "popularity": 3.276,
                     "poster_path": "/ktKeyB6yNo81wD60NxZvb7f1nZz.jpg",
-                    "release_date": "",
+                    "release_date": "",  # No release date
                     "title": "Quicksilver Highway",
                     "video": False,
                     "vote_average": 5.1,
@@ -387,7 +315,7 @@ class FormatResults(TestCase):
                     "vote_count": 1,
                     "credit_id": "5ec046358e2e00002118c536",
                     "department": "Production",
-                    "job": ""
+                    "job": ""  # No job
                 }
             ],
             "id": 1090

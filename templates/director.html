@@ -1,27 +1,27 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>Director</title>
-</head>
+{% block title %}Director{% endblock %}
 
-<body>
-    <h1>Director {{ title }}</h1>
-    {% include "buttons.html" %}
-    <table>
-        <thead>
-            <tr>
-                <th style="text-align: left;">Director</th>
-            </tr>
-        </thead>
-        <tbody>
-            {% for person in directors %}
-            <tr>
-                <td><a href="/related-movies/{{ person.id }}?name={{ person.name }}">{{ person.name }}</a></td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-</body>
-
-</html>
+{% block content %}
+<h1>Director {{ title }}</h1>
+{% include "buttons.html" %}
+<table>
+    <thead>
+        <tr>
+            <th style="text-align: left;">Director</th>
+        </tr>
+    </thead>
+    <tbody>
+        {% for person in directors %}
+        <tr>
+            <td>
+                {% if person.profile_path %}
+                <img src="https://image.tmdb.org/t/p/w92{{ person.profile_path }}" alt="{{ person.name }}">
+                {% endif %}
+            </td>
+            <td><a href="/related-movies/{{ person.id }}?name={{ person.name }}">{{ person.name }}</a></td>
+        </tr>
+        {% endfor %}
+    </tbody>
+</table>
+{% endblock %}

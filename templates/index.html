@@ -1,18 +1,11 @@
-<!DOCTYPE html>
-<html lang="es">
+{% extends "base.html" %}
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Búsqueda de películas</title>
-</head>
+{% block title %}Búsqueda de películas{% endblock %}
 
-<body>
-    <h1>Búsqueda de películas</h1>
-    <form action="/search" method="get">
-        <input type="text" name="query" placeholder="Entre nombre de película" />
-        <button type="submit">Buscar</button>
-    </form>
-</body>
-
-</html>
+{% block content %}
+<h1>Búsqueda de películas</h1>
+<form action="/search" method="get">
+    <input type="text" name="query" placeholder="Entre nombre de película" />
+    <button type="submit">Buscar</button>
+</form>
+{% endblock %}

@@ -6,10 +6,7 @@ def clean_no_release_date(data: dict) -> dict:
 
 def get_director(data: dict) -> list:
     return [
-        {
-            "id": item["id"],
-            "name": item["name"]
-        }
+        item
         for item in data["crew"]
         if item["job"] == "Director"
     ]

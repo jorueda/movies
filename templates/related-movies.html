@@ -1,51 +1,46 @@
-<!DOCTYPE html>
-<html>
+{% extends "base.html" %}
 
-<head>
-    <title>Películas relacionadas</title>
-</head>
+{% block title %}Películas relacionadas{% endblock %}
 
-<body>
-    <h1>Películas {{ name }}</h1>
-    {% include "buttons.html" %}
-    <h2>Elenco</h2>
-    <table>
-        <tr>
-            <th style="text-align: left;">Título</th>
-            <th style="text-align: left;">Título Original</th>
-            <th style="text-align: left;">Fecha de lanzamiento</th>
-            <th style="text-align: left;">Personaje</th>
-        </tr>
-        {% for movie in movies.cast %}
-        <tr>
-            <td>{{ movie.title }}</td>
-            <td>{{ movie.original_title }}</td>
-            <td>{{ movie.release_date }}</td>
-            <td>{{ movie.character }}</td>
-            <td><a href="/cast/{{ movie.id }}?title={{ movie.title }}">Reparto</a></td>
-            <td><a href="/director/{{ movie.id }}?title={{ movie.title }}">Director</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-    <h2>Equipo</h2>
-    <table>
-        <tr>
-            <th style="text-align: left;">Título</th>
-            <th style="text-align: left;">Título Original</th>
-            <th style="text-align: left;">Fecha de lanzamiento</th>
-            <th style="text-align: left;">Posición</th>
-        </tr>
-        {% for movie in movies.crew %}
-        <tr>
-            <td>{{ movie.title }}</td>
-            <td>{{ movie.original_title }}</td>
-            <td>{{ movie.release_date }}</td>
-            <td>{{ movie.job }}</td>
-            <td><a href="/cast/{{ movie.id }}?title={{ movie.title }}">Reparto</a></td>
-            <td><a href="/director/{{ movie.id }}?title={{ movie.title }}">Director</a></td>
-        </tr>
-        {% endfor %}
-    </table>
-</body>
-
-</html>
+{% block content %}
+<h1>Películas {{ name }}</h1>
+{% include "buttons.html" %}
+<h2>Elenco</h2>
+<table>
+    <tr>
+        <th style="text-align: left;">Título</th>
+        <th style="text-align: left;">Título Original</th>
+        <th style="text-align: left;">Fecha de lanzamiento</th>
+        <th style="text-align: left;">Personaje</th>
+    </tr>
+    {% for movie in movies.cast %}
+    <tr>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.original_title }}</td>
+        <td>{{ movie.release_date }}</td>
+        <td>{{ movie.character }}</td>
+        <td><a href="/cast/{{ movie.id }}?title={{ movie.title }}">Reparto</a></td>
+        <td><a href="/director/{{ movie.id }}?title={{ movie.title }}">Director</a></td>
+    </tr>
+    {% endfor %}
+</table>
+<h2>Equipo</h2>
+<table>
+    <tr>
+        <th style="text-align: left;">Título</th>
+        <th style="text-align: left;">Título Original</th>
+        <th style="text-align: left;">Fecha de lanzamiento</th>
+        <th style="text-align: left;">Posición</th>
+    </tr>
+    {% for movie in movies.crew %}
+    <tr>
+        <td>{{ movie.title }}</td>
+        <td>{{ movie.original_title }}</td>
+        <td>{{ movie.release_date }}</td>
+        <td>{{ movie.job }}</td>
+        <td><a href="/cast/{{ movie.id }}?title={{ movie.title }}">Reparto</a></td>
+        <td><a href="/director/{{ movie.id }}?title={{ movie.title }}">Director</a></td>
+    </tr>
+    {% endfor %}
+</table>
+{% endblock %}
