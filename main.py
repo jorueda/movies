@@ -4,6 +4,7 @@ from fastapi.staticfiles import StaticFiles
 from fastapi.templating import Jinja2Templates
 import requests
 from utils import clean_no_release_date, get_director, clean_related_movies_data
+import os
 
 app = FastAPI()
 templates = Jinja2Templates(directory="templates")
@@ -11,7 +12,7 @@ templates = Jinja2Templates(directory="templates")
 # Montar la carpeta static
 app.mount("/static", StaticFiles(directory="static"), name="static")
 
-API_KEY = ""
+API_KEY = os.environ.get('API_KEY')
 # https://developer.themoviedb.org/reference/intro/authentication
 suffix = f"api_key={API_KEY}&language=es-mx"
 
