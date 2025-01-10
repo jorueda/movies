@@ -25,8 +25,7 @@ def read_root(request: Request):
 @app.get("/search")
 async def search_movie(request: Request, query: str = "", page: int = 1):
     # https://developer.themoviedb.org/reference/search-movie
-    url = f"https://api.themoviedb.org/3/search/movie?{
-        suffix}&query={query}&page={page}"
+    url = f"https://api.themoviedb.org/3/search/movie?{suffix}&query={query}&page={page}"
     response = requests.get(url)
     data = response.json()
     # Clean no release date
@@ -80,8 +79,7 @@ async def director(request: Request, movie_id: int, title: str):
 @app.get("/related-movies/{person_id}")
 async def related_movies(request: Request, person_id: int, name: str):
     # https://developer.themoviedb.org/reference/person-movie-credits
-    url = f"https://api.themoviedb.org/3/person/{
-        person_id}/movie_credits?{suffix}"
+    url = f"https://api.themoviedb.org/3/person/{person_id}/movie_credits?{suffix}"
     response = requests.get(url)
     data = response.json()
     # Clean from empty character or job
